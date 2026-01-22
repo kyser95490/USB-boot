@@ -2,9 +2,14 @@
 import { GoogleGenAI } from "@google/genai";
 import { Message } from "../types.ts";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
-
 export const getAIResponse = async (history: Message[]) => {
+  // Initialisation dynamique pour s'assurer que l'API KEY est lue au moment de l'appel
+  const apiKey = process.env.API_KEY;
+  if (!apiKey) {
+    return "L'Assistant IA n'est pas configuré. Veuillez vérifier votre clé API.";
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
   const model = 'gemini-3-flash-preview';
   
   const systemInstruction = `
