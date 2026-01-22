@@ -4,13 +4,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Win11 BootMaster - Windows 11 USB Creator</title>
+    <title>Win11 BootMaster - Portable Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-      // Simulation d'un environnement minimal pour éviter les erreurs de références à 'process'
+      // Polyfill robuste pour éviter les erreurs "process is not defined"
       window.process = { 
         env: { NODE_ENV: 'production', API_KEY: '' },
         cwd: () => '/',
@@ -18,8 +18,20 @@
       };
     </script>
     <style>
-      body { margin: 0; font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+      body { 
+        margin: 0; 
+        font-family: 'Inter', sans-serif; 
+        background-color: #f3f4f6; 
+        overflow-x: hidden;
+      }
       #root { min-height: 100vh; }
+      /* Windows 11 Acrylic Effect */
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
     </style>
     <script type="importmap">
 {
@@ -37,7 +49,20 @@
 </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; color: #64748b; font-family: 'Inter', sans-serif;">
+        <div style="margin-bottom: 20px; font-weight: 600;">Initialisation de BootMaster...</div>
+        <div style="width: 200px; height: 4px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
+          <div style="width: 30%; height: 100%; background: #2563eb; animation: load 2s infinite ease-in-out;"></div>
+        </div>
+      </div>
+    </div>
+    <style>
+      @keyframes load {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(200%); }
+      }
+    </style>
     <script type="module" src="index.tsx"></script>
   </body>
 </html>
