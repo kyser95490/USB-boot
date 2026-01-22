@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-      // Polyfill robuste pour éviter les erreurs "process is not defined"
+      // Polyfill global pour éviter les erreurs de modules
       window.process = { 
         env: { NODE_ENV: 'production', API_KEY: '' },
         cwd: () => '/',
@@ -22,16 +22,10 @@
         margin: 0; 
         font-family: 'Inter', sans-serif; 
         background-color: #f3f4f6; 
-        overflow-x: hidden;
+        overflow: hidden; /* Empêche le scroll sur le body pour l'effet app native */
       }
-      #root { min-height: 100vh; }
-      /* Windows 11 Acrylic Effect */
-      .glass {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-      }
+      #root { height: 100vh; display: flex; flex-direction: column; }
+      .win11-shadow { shadow-sm border border-slate-200 shadow-slate-200/50 }
     </style>
     <script type="importmap">
 {
@@ -50,17 +44,17 @@
   </head>
   <body>
     <div id="root">
-      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; color: #64748b; font-family: 'Inter', sans-serif;">
-        <div style="margin-bottom: 20px; font-weight: 600;">Initialisation de BootMaster...</div>
-        <div style="width: 200px; height: 4px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
-          <div style="width: 30%; height: 100%; background: #2563eb; animation: load 2s infinite ease-in-out;"></div>
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; color: #64748b; font-family: 'Inter', sans-serif; background: #f3f4f6;">
+        <div style="margin-bottom: 20px; font-weight: 600; color: #1e293b;">Chargement de BootMaster...</div>
+        <div style="width: 240px; height: 6px; background: #e2e8f0; border-radius: 10px; overflow: hidden; border: 1px solid #cbd5e1;">
+          <div style="width: 40%; height: 100%; background: #2563eb; animation: load 1.5s infinite ease-in-out;"></div>
         </div>
       </div>
     </div>
     <style>
       @keyframes load {
         0% { transform: translateX(-100%); }
-        100% { transform: translateX(200%); }
+        100% { transform: translateX(250%); }
       }
     </style>
     <script type="module" src="index.tsx"></script>
