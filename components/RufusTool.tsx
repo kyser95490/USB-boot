@@ -11,7 +11,7 @@ import {
   AlertTriangle,
   Loader2
 } from 'lucide-react';
-import { CreationStatus, ToolSettings } from '../types';
+import { CreationStatus, ToolSettings } from '../types.ts';
 
 interface Props {
   status: CreationStatus;

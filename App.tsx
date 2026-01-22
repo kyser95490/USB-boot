@@ -13,9 +13,9 @@ import {
   ChevronRight,
   Info
 } from 'lucide-react';
-import RufusTool from './components/RufusTool';
-import AIAdvisor from './components/AIAdvisor';
-import { CreationStatus } from './types';
+import RufusTool from './components/RufusTool.tsx';
+import AIAdvisor from './components/AIAdvisor.tsx';
+import { CreationStatus } from './types.ts';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'tool' | 'ai' | 'guide'>('tool');

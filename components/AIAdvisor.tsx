@@ -1,8 +1,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Sparkles, AlertCircle } from 'lucide-react';
-import { getAIResponse } from '../services/geminiService';
-import { Message } from '../types';
+import { getAIResponse } from '../services/geminiService.ts';
+import { Message } from '../types.ts';
 
 const AIAdvisor: React.FC = () => {
   const [history, setHistory] = useState<Message[]>([
