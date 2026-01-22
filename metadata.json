@@ -1,0 +1,5 @@
+{
+  "name": "Win11 BootMaster",
+  "description": "A professional assistant for creating Windows 11 bootable USB drives. Includes a simulated creation tool and an AI advisor for troubleshooting hardware compatibility, BIOS/UEFI settings, and TPM requirements.",
+  "requestFramePermissions": []
+}
