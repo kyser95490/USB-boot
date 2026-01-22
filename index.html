@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-      // Polyfill global pour éviter les erreurs de modules
       window.process = { 
         env: { NODE_ENV: 'production', API_KEY: '' },
         cwd: () => '/',
@@ -18,14 +17,8 @@
       };
     </script>
     <style>
-      body { 
-        margin: 0; 
-        font-family: 'Inter', sans-serif; 
-        background-color: #f3f4f6; 
-        overflow: hidden; /* Empêche le scroll sur le body pour l'effet app native */
-      }
+      body { margin: 0; font-family: 'Inter', sans-serif; background-color: #f3f4f6; overflow: hidden; }
       #root { height: 100vh; display: flex; flex-direction: column; }
-      .win11-shadow { shadow-sm border border-slate-200 shadow-slate-200/50 }
     </style>
     <script type="importmap">
 {
@@ -45,7 +38,7 @@
   <body>
     <div id="root">
       <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; color: #64748b; font-family: 'Inter', sans-serif; background: #f3f4f6;">
-        <div style="margin-bottom: 20px; font-weight: 600; color: #1e293b;">Chargement de BootMaster...</div>
+        <div style="margin-bottom: 20px; font-weight: 600; color: #1e293b;">Initialisation de BootMaster...</div>
         <div style="width: 240px; height: 6px; background: #e2e8f0; border-radius: 10px; overflow: hidden; border: 1px solid #cbd5e1;">
           <div style="width: 40%; height: 100%; background: #2563eb; animation: load 1.5s infinite ease-in-out;"></div>
         </div>
